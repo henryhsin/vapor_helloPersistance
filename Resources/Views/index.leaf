@@ -1,16 +1,42 @@
 #extend("base")
 
 #export("body") {
+      <div class="row">
+        <div class="u-full-width">
+            <h4>Add new Acronym</h4>
+        </div>
+    </div>
+
+    <form action="/til" method="post">
+        <div class="row"> 
+            <div class="three columns">
+                <label>Acronym</label>
+                <input name="short" class="u-full-width" placeholder="short form e.g. FTW" />
+            </div>
+            <div class="nine columns">
+                <label>Long Form</label>
+                <input name="long" class="u-full-width" placeholder="long form e.g For The Win" />
+                <input class="button-primary" type="submit" value="Save it!!" />
+            </div>
+        </div>
+    </form>
+    
     #loop(acronyms, "acronym") {
         <div class="row">
-            <div class="three wide columns">
+            <div class="three columns">
                 <h5><span>#(acronym.short)</span></h5>
             </div>
-            <div class="six wide columns">
+            <div class="six columns">
                 <h5><span>#(acronym.long)</span></h5>
             </div>
-            <div class="three wide columns">
+            <div class="three columns">
+                <form action="/til/#(acronym.id)/delete" method="post">
+                    <input type="submit" value="Delete!!" />
+                </form>
             </div>
         </div>
     }
+
+  
+
 }
