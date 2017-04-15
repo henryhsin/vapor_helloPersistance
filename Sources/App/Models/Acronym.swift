@@ -32,6 +32,7 @@ final class Acronym: Model{
     
     func makeNode(context: Context) throws -> Node {
         return try Node(node: [
+            "id": id,
             "short": short,
             "long": long
             ])
