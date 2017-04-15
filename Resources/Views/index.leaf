@@ -1,0 +1,16 @@
+#extend("base")
+
+#export("body") {
+    #loop(acronyms, "acronym") {
+        <div class="row">
+            <div class="three wide columns">
+                <h5><span>#(acronym.short)</span></h5>
+            </div>
+            <div class="six wide columns">
+                <h5><span>#(acronym.long)</span></h5>
+            </div>
+            <div class="three wide columns">
+            </div>
+        </div>
+    }
+}

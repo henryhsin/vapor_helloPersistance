@@ -1,3 +1,4 @@
+//rrun postgresql $postgres -D /usr/local/var/postgres
 import Vapor
 import VaporPostgreSQL
 
@@ -8,6 +9,9 @@ drop.preparations.append(Acronym.self)
 
 var basicController = BasicControllers()
 basicController.addRoutes(drop: drop)
+
+var tilController = TILController()
+tilController.addRoutes(drop: drop)
 
 let acronyms = AcronymController()
 drop.resource("acronyms", acronyms)
